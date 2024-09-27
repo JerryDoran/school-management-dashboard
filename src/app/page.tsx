@@ -1,5 +1,5 @@
 const Homepage = () => {
-  return <div className=''>School Management App</div>;
+  return <div className=''>School Management Dashboard</div>;
 };
 
 export default Homepage;
