@@ -46,7 +46,13 @@ export default function AttendanceChart() {
     <div className='bg-white rounded-lg p-4 h-full'>
       <div className='flex justify-between items-center'>
         <h1 className='text-lg font-semibold'>Attendance</h1>
-        <Image src='/moreDark.png' alt='' width={20} height={20} />
+        <Image
+          src='/moreDark.png'
+          alt=''
+          width={20}
+          height={20}
+          className='cursor-pointer'
+        />
       </div>
       <div className='relative w-full h-[90%]'>
         <ResponsiveContainer>
@@ -59,12 +65,12 @@ export default function AttendanceChart() {
             <XAxis
               dataKey='name'
               axisLine={false}
-              tick={{ fill: '#d1d5db' }}
+              tick={{ fill: '#d1d5db', fontSize: 14 }}
               tickLine={false}
             />
             <YAxis
               axisLine={false}
-              tick={{ fill: '#d1d5db' }}
+              tick={{ fill: '#d1d5db', fontSize: 14 }}
               tickLine={false}
             />
             <Tooltip
@@ -78,7 +84,11 @@ export default function AttendanceChart() {
             <Legend
               align='left'
               verticalAlign='top'
-              wrapperStyle={{ paddingTop: '20px', paddingBottom: '30px' }}
+              wrapperStyle={{
+                paddingTop: '20px',
+                paddingBottom: '30px',
+                fontSize: 14,
+              }}
             />
             <Bar
               dataKey='present'
