@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Navbar() {
   return (
-    <div className='flex items-center justify-between p-4'>
+    <header className='flex items-center justify-between p-4'>
       {/* Searchbar */}
       <div className='hidden md:flex items-center text-sm gap-3 bg-white p-2 rounded-full ring-[1.5px] ring-gray-200'>
         <Image
@@ -18,7 +18,7 @@ export default function Navbar() {
         />
       </div>
       {/* Icons & User */}
-      <div className='flex items-center gap-6 justify-end w-full'>
+      <nav className='flex items-center gap-6 justify-end w-full'>
         <div className='bg-white rounded-full size-7 flex items-center justify-center cursor-pointer'>
           <Image src='/message.png' alt='message' width={20} height={20} />
         </div>
@@ -39,7 +39,7 @@ export default function Navbar() {
           height={36}
           className='rounded-full'
         />
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 }

@@ -24,7 +24,9 @@ export default function DashboardLayout({
       <div className='w-[14%] md:w-[8%] lg:w-[16%] xl:w-[14%]'>
         <Link href='/' className='flex items-center gap-2 lg:justify-start p-4'>
           <Image src='/logo.png' width={32} height={32} alt='logo' />
-          <span className='hidden lg:block'>Maestro</span>
+          <span className='hidden lg:block font-bold tracking-wide'>
+            Maestro
+          </span>
         </Link>
         <Menu />
       </div>
