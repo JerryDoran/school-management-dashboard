@@ -1,5 +1,3 @@
-
-
 import Announcements from '@/components/announcements';
 import BigCalendar from '@/components/big-calendar';
 import EventCalendar from '@/components/event-calander';
