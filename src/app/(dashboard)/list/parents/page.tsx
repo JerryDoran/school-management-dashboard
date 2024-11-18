@@ -60,7 +60,7 @@ export default function ParentListPage() {
         <div className='flex items-center gap-2'>
           <Link href={`/list/teachers/${item.id}`}>
             <button className='size-7 flex items-center justify-center rounded-full bg-maestroSky'>
-              <Image src='/view.png' alt='view' width={16} height={16} />
+              <Image src='/edit.png' alt='view' width={16} height={16} />
             </button>
           </Link>
           {role === 'admin' && (
