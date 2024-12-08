@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { examsData, lessonsData, role } from '@/lib/data';
+import { examsData, role } from '@/lib/data';
 
 import Pagination from '@/components/pagination';
 import Table from '@/components/table';

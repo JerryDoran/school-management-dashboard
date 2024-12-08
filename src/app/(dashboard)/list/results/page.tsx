@@ -1,17 +1,20 @@
 import Image from 'next/image';
-import { assignmentsData, role } from '@/lib/data';
+import { resultsData, role } from '@/lib/data';
 
 import Pagination from '@/components/pagination';
 import Table from '@/components/table';
 import TableSearch from '@/components/table-search';
 import Link from 'next/link';
 
-type Assignment = {
+type Result = {
   id: number;
   subject: string;
   class: string;
   teacher: string;
-  dueDate: string;
+  student: string;
+  type: 'exam' | 'assignment';
+  date: string;
+  score: number;
 };
 
 const columns = [
@@ -20,8 +23,13 @@ const columns = [
     accessor: 'subject',
   },
   {
-    header: 'Class',
-    accessor: 'class',
+    header: 'Student',
+    accessor: 'student',
+  },
+  {
+    header: 'Score',
+    accessor: 'score',
+    className: 'hidden md:table-cell',
   },
   {
     header: 'Teacher',
@@ -29,8 +37,13 @@ const columns = [
     className: 'hidden md:table-cell',
   },
   {
-    header: 'DueDate',
-    accessor: 'dueDate',
+    header: 'Class',
+    accessor: 'class',
+    className: 'hidden md:table-cell',
+  },
+  {
+    header: 'Date',
+    accessor: 'date',
     className: 'hidden md:table-cell',
   },
   {
@@ -39,16 +52,18 @@ const columns = [
   },
 ];
 
-export default function AssignmentsListPage() {
-  const renderRow = (item: Assignment) => (
+export default function ResultsListPage() {
+  const renderRow = (item: Result) => (
     <tr
       key={item.id}
       className='border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-maestroPurpleLight'
     >
       <td className='flex items-center p-4 gap-4 '>{item.subject}</td>
-      <td>{item.class}</td>
+      <td>{item.student}</td>
+      <td className='hidden md:table-cell'>{item.score}</td>
       <td className='hidden md:table-cell'>{item.teacher}</td>
-      <td className='hidden md:table-cell'>{item.dueDate}</td>
+      <td className='hidden md:table-cell'>{item.class}</td>
+      <td className='hidden md:table-cell'>{item.date}</td>
       <td>
         <div className='flex items-center gap-2'>
           <Link href={`/list/teachers/${item.id}`}>
@@ -91,7 +106,7 @@ export default function AssignmentsListPage() {
       </div>
 
       {/* List */}
-      <Table columns={columns} renderRow={renderRow} data={assignmentsData} />
+      <Table columns={columns} renderRow={renderRow} data={resultsData} />
       {/* Pagination */}
       <Pagination />
     </section>
