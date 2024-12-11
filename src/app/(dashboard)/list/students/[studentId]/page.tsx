@@ -4,7 +4,7 @@ import PerformanceChart from '@/components/performance-chart';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function SingleTeacherPage() {
+export default function SingleStudentPage() {
   return (
     <div className='flex flex-1 flex-col xl:flex-row p-4 gap-4'>
       {/* LEFT */}
@@ -15,7 +15,7 @@ export default function SingleTeacherPage() {
           <div className='bg-maestroSky py-6 px-4 rounded-md flex-1 flex gap-4'>
             <div className='w-1/3'>
               <Image
-                src='https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1200'
+                src='https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=600'
                 alt='teacher profile picture'
                 width={144}
                 height={144}
@@ -23,7 +23,7 @@ export default function SingleTeacherPage() {
               />
             </div>
             <div className='w-2/3 flex flex-col justify-between gap-4'>
-              <h1 className='text-xl font-semibold'>John Anderson</h1>
+              <h1 className='text-xl font-semibold'>Allie Anderson</h1>
               <p className='text-sm text-gray-500'>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               </p>
@@ -77,8 +77,8 @@ export default function SingleTeacherPage() {
                 className='size-6'
               />
               <div className=''>
-                <h1 className='text-xl font-semibold'>2</h1>
-                <span className='text-sm text-gray-400'>Branches</span>
+                <h1 className='text-xl font-semibold'>12th</h1>
+                <span className='text-sm text-gray-400'>Grade</span>
               </div>
             </div>
             <div className='bg-white p-4 rounded-md flex gap-4 w-full md:w-[48%] xl:w-[45%] 2xl:w-[48%]'>
@@ -90,7 +90,7 @@ export default function SingleTeacherPage() {
                 className='size-6'
               />
               <div className=''>
-                <h1 className='text-xl font-semibold'>5</h1>
+                <h1 className='text-xl font-semibold'>18</h1>
                 <span className='text-sm text-gray-400'>Lessons</span>
               </div>
             </div>
@@ -103,8 +103,8 @@ export default function SingleTeacherPage() {
                 className='size-6'
               />
               <div className=''>
-                <h1 className='text-xl font-semibold'>5</h1>
-                <span className='text-sm text-gray-400'>Classes</span>
+                <h1 className='text-xl font-semibold'>7A</h1>
+                <span className='text-sm text-gray-400'>Class</span>
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@ export default function SingleTeacherPage() {
 
         {/* Bottom */}
         <div className='mt-4 bg-white rounded-md p-4 h-[800px]'>
-          <h1 className='text-2xl font-semibold'>Teacher&apos;s Schedule</h1>
+          <h1 className='text-2xl font-semibold'>Student&apos;s Schedule</h1>
           <BigCalendar />
         </div>
       </div>
@@ -123,19 +123,19 @@ export default function SingleTeacherPage() {
           <h1 className='text-xl font-semibold'>Shortcuts</h1>
           <div className='mt-4 flex flex-wrap gap-4 text-xs text-gray-500'>
             <Link href='/' className='p-3 rounded-md bg-maestroSkyLight'>
-              Teacher&apos;s Classes
+              Student&apos;s Lessons
             </Link>
             <Link href='/' className='p-3 rounded-md bg-maestroPurpleLight'>
-              Teacher&apos;s Students
+              Student&apos;s Teachers
             </Link>
             <Link href='/' className='p-3 rounded-md bg-maestroYellowLight'>
-              Teacher&apos;s Lessons
+              Student&apos;s Results
             </Link>
             <Link href='/' className='p-3 rounded-md bg-pink-50'>
-              Teacher&apos;s Exams
+              Student&apos;s Exams
             </Link>
             <Link href='/' className='p-3 rounded-md bg-indigo-50'>
-              Teacher&apos;s Assignments
+              Student&apos;s Assignments
             </Link>
           </div>
         </div>

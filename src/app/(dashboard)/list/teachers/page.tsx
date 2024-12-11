@@ -5,6 +5,7 @@ import Pagination from '@/components/pagination';
 import Table from '@/components/table';
 import TableSearch from '@/components/table-search';
 import Link from 'next/link';
+import FormModal from '@/components/form-modal';
 
 type Teacher = {
   id: number;
@@ -112,9 +113,10 @@ export default function TeacherListPage() {
               <Image src='/sort.png' alt='filter' width={14} height={14} />
             </button>
             {role === 'admin' && (
-              <button className='size-8 flex items-center justify-center rounded-full bg-maestroYellow'>
-                <Image src='/plus.png' alt='filter' width={14} height={14} />
-              </button>
+              // <button className='size-8 flex items-center justify-center rounded-full bg-maestroYellow'>
+              //   <Image src='/plus.png' alt='filter' width={14} height={14} />
+              // </button>
+              <FormModal table='teacher' type='create' />
             )}
           </div>
         </div>
