@@ -5,6 +5,7 @@ import Pagination from '@/components/pagination';
 import Table from '@/components/table';
 import TableSearch from '@/components/table-search';
 import Link from 'next/link';
+import FormModal from '@/components/form-modal';
 
 type Student = {
   id: number;
@@ -75,14 +76,13 @@ export default function StudentListPage() {
       <td>
         <div className='flex items-center gap-2'>
           <Link href={`/list/students/${item.id}`}>
-            <button className='size-7 flex items-center justify-center rounded-full bg-maestroSky'>
-              <Image src='/view.png' alt='view' width={16} height={16} />
-            </button>
+            <FormModal table='student' type='update' id={item.id} />
           </Link>
           {role === 'admin' && (
-            <button className='size-7 flex items-center justify-center rounded-full bg-maestroPurple'>
-              <Image src='/delete.png' alt='view' width={16} height={16} />
-            </button>
+            // <button className='size-7 flex items-center justify-center rounded-full bg-maestroPurple'>
+            //   <Image src='/delete.png' alt='view' width={16} height={16} />
+            // </button>
+            <FormModal table='student' type='delete' id={item.id} />
           )}
         </div>
       </td>
@@ -103,9 +103,10 @@ export default function StudentListPage() {
               <Image src='/sort.png' alt='filter' width={14} height={14} />
             </button>
             {role === 'admin' && (
-              <button className='size-8 flex items-center justify-center rounded-full bg-maestroYellow'>
-                <Image src='/plus.png' alt='filter' width={14} height={14} />
-              </button>
+              // <button className='size-8 flex items-center justify-center rounded-full bg-maestroYellow'>
+              //   <Image src='/plus.png' alt='filter' width={14} height={14} />
+              // </button>
+              <FormModal table='student' type='create' />
             )}
           </div>
         </div>

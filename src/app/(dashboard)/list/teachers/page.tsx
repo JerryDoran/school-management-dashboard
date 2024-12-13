@@ -89,9 +89,10 @@ export default function TeacherListPage() {
             </button>
           </Link>
           {role === 'admin' && (
-            <button className='size-7 flex items-center justify-center rounded-full bg-maestroPurple'>
-              <Image src='/delete.png' alt='view' width={16} height={16} />
-            </button>
+            // <button className='size-7 flex items-center justify-center rounded-full bg-maestroPurple'>
+            //   <Image src='/delete.png' alt='view' width={16} height={16} />
+            // </button>
+            <FormModal table='teacher' type='delete' id={item.id} />
           )}
         </div>
       </td>

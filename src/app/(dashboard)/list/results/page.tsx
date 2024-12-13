@@ -5,6 +5,7 @@ import Pagination from '@/components/pagination';
 import Table from '@/components/table';
 import TableSearch from '@/components/table-search';
 import Link from 'next/link';
+import FormModal from '@/components/form-modal';
 
 type Result = {
   id: number;
@@ -66,15 +67,16 @@ export default function ResultsListPage() {
       <td className='hidden md:table-cell'>{item.date}</td>
       <td>
         <div className='flex items-center gap-2'>
-          <Link href={`/list/teachers/${item.id}`}>
-            <button className='size-7 flex items-center justify-center rounded-full bg-maestroSky'>
-              <Image src='/edit.png' alt='view' width={16} height={16} />
-            </button>
-          </Link>
           {role === 'admin' && (
-            <button className='size-7 flex items-center justify-center rounded-full bg-maestroPurple'>
-              <Image src='/delete.png' alt='view' width={16} height={16} />
-            </button>
+            <>
+              <FormModal
+                table='result'
+                type='update'
+                data={item}
+                id={item.id}
+              />
+              <FormModal table='result' type='delete' id={item.id} />
+            </>
           )}
         </div>
       </td>
@@ -96,11 +98,7 @@ export default function ResultsListPage() {
             <button className='size-8 flex items-center justify-center rounded-full bg-maestroYellow'>
               <Image src='/sort.png' alt='filter' width={14} height={14} />
             </button>
-            {role === 'admin' && (
-              <button className='size-8 flex items-center justify-center rounded-full bg-maestroYellow'>
-                <Image src='/plus.png' alt='filter' width={14} height={14} />
-              </button>
-            )}
+            {role === 'admin' && <FormModal table='assignment' type='create' />}
           </div>
         </div>
       </div>
