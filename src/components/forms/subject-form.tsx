@@ -6,12 +6,12 @@ import { z } from 'zod';
 import FormInput from '../form-input';
 import Image from 'next/image';
 
-type TeacherFormProps = {
+type SubjectFormProps = {
   type: 'create' | 'update';
   data?: any;
 };
 
-const teacherSchema = z.object({
+const subjectSchema = z.object({
   username: z.string().min(3, 'User name must be at least 3 characters long!'),
   email: z.string().email({ message: 'Invalid email address!' }),
   password: z.string().min(6, 'Password must be at least 6 characters long!'),
@@ -25,15 +25,15 @@ const teacherSchema = z.object({
   image: z.instanceof(File, { message: 'Image is required!' }),
 });
 
-type Inputs = z.infer<typeof teacherSchema>;
+type Inputs = z.infer<typeof subjectSchema>;
 
-export default function TeacherForm({ type, data }: TeacherFormProps) {
+export default function SubjectForm({ type, data }: SubjectFormProps) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>({
-    resolver: zodResolver(teacherSchema),
+    resolver: zodResolver(subjectSchema),
   });
 
   function onSubmit(data: any) {
@@ -46,7 +46,7 @@ export default function TeacherForm({ type, data }: TeacherFormProps) {
       className='p-4 flex flex-col gap-4'
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h1 className='text-xl font-semibold'>Create Teacher</h1>
+      <h1 className='text-xl font-semibold'>Create Subject</h1>
       <span className='text-xs text-gray-400 font-medium'>
         Authentication Info
       </span>

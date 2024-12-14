@@ -2,6 +2,111 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+// import StudentForm from './forms/student-form';
+// import TeacherForm from './forms/teacher-form';
+
+const TeacherForm = dynamic(() => import('./forms/teacher-form'), {
+  loading: () => (
+    <div>
+      <p>Loading...</p>
+    </div>
+  ),
+});
+const StudentForm = dynamic(() => import('./forms/student-form'), {
+  loading: () => (
+    <div>
+      <p>Loading...</p>
+    </div>
+  ),
+});
+const ParentForm = dynamic(() => import('./forms/student-form'), {
+  loading: () => (
+    <div>
+      <p>Loading...</p>
+    </div>
+  ),
+});
+const SubjectForm = dynamic(() => import('./forms/subject-form'), {
+  loading: () => (
+    <div>
+      <p>Loading...</p>
+    </div>
+  ),
+});
+const ClassForm = dynamic(() => import('./forms/class-form'), {
+  loading: () => (
+    <div>
+      <p>Loading...</p>
+    </div>
+  ),
+});
+const LessonForm = dynamic(() => import('./forms/lesson-form'), {
+  loading: () => (
+    <div>
+      <p>Loading...</p>
+    </div>
+  ),
+});
+const ExamForm = dynamic(() => import('./forms/exam-form'), {
+  loading: () => (
+    <div>
+      <p>Loading...</p>
+    </div>
+  ),
+});
+const AssignmentForm = dynamic(() => import('./forms/assignment-form'), {
+  loading: () => (
+    <div>
+      <p>Loading...</p>
+    </div>
+  ),
+});
+const ResultForm = dynamic(() => import('./forms/result-form'), {
+  loading: () => (
+    <div>
+      <p>Loading...</p>
+    </div>
+  ),
+});
+const AttendanceForm = dynamic(() => import('./forms/attendance-form'), {
+  loading: () => (
+    <div>
+      <p>Loading...</p>
+    </div>
+  ),
+});
+const EventForm = dynamic(() => import('./forms/event-form'), {
+  loading: () => (
+    <div>
+      <p>Loading...</p>
+    </div>
+  ),
+});
+const AnnouncementForm = dynamic(() => import('./forms/announcement-form'), {
+  loading: () => (
+    <div>
+      <p>Loading...</p>
+    </div>
+  ),
+});
+
+const forms: {
+  [key: string]: (type: 'create' | 'update', data?: any) => JSX.Element;
+} = {
+  teacher: (type, data) => <TeacherForm type={type} data={data} />,
+  student: (type, data) => <StudentForm type={type} data={data} />,
+  parent: (type, data) => <ParentForm type={type} data={data} />,
+  subject: (type, data) => <SubjectForm type={type} data={data} />,
+  class: (type, data) => <ClassForm type={type} data={data} />,
+  lesson: (type, data) => <LessonForm type={type} data={data} />,
+  exam: (type, data) => <ExamForm type={type} data={data} />,
+  assignment: (type, data) => <AssignmentForm type={type} data={data} />,
+  result: (type, data) => <ResultForm type={type} data={data} />,
+  attendance: (type, data) => <AttendanceForm type={type} data={data} />,
+  event: (type, data) => <EventForm type={type} data={data} />,
+  announcement: (type, data) => <AnnouncementForm type={type} data={data} />,
+};
 
 type FormModalProps = {
   table:
@@ -34,7 +139,7 @@ export default function FormModal({ table, type, data, id }: FormModalProps) {
 
   function Form() {
     return type === 'delete' && id ? (
-      <form action='' className='p-4 flex flex-col gap-4'>
+      <form action='' className='p-4 flex flex-col gap-4 '>
         <span className='text-center font-medium'>
           Are you sure you want to delete this {table}? These changes cannot be
           reversed.
@@ -43,8 +148,10 @@ export default function FormModal({ table, type, data, id }: FormModalProps) {
           Delete
         </button>
       </form>
+    ) : type === 'create' || type === 'update' ? (
+      forms[table](type, data)
     ) : (
-      'create or update'
+      'Form not found!'
     );
   }
 
@@ -58,7 +165,7 @@ export default function FormModal({ table, type, data, id }: FormModalProps) {
       </button>
       {open && (
         <div className=' w-screen h-screen fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
-          <div className='bg-white p-4 rounded-md relative w-[90%] sm:w-[60%] lg:w-[40%]'>
+          <div className='bg-white p-4 rounded-md relative w-[90%] sm:w-[70%] lg:w-[60%] xl:w-[50%]'>
             <Form />
             <div>
               <Image
