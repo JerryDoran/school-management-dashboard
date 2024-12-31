@@ -8,12 +8,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const QuickLink = ({ href, title }: { href: string; title: string }) => (
-  <Link 
+  <Link
     href={href}
-    className="p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow flex items-center justify-between"
+    className='p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow flex items-center justify-between'
   >
-    <span className="text-gray-700">{title}</span>
-    <span className="text-gray-400">→</span>
+    <span className='text-gray-700'>{title}</span>
+    <span className='text-gray-400'>→</span>
   </Link>
 );
 
@@ -33,21 +33,25 @@ const Homepage = () => {
 
         {/* Admin Dashboard Link */}
         <Link
-          href="/admin"
-          className="block mb-8 p-6 bg-gradient-to-r from-maestroPurple to-purple-600 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+          href='/admin'
+          className='block mb-8 p-6 bg-gradient-to-t from-maestroPurple to-purple-600 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group'
         >
-          <div className="flex items-center justify-between">
+          <div className='flex items-center justify-between'>
             <div>
-              <h2 className="text-xl font-bold text-white mb-2">Admin Dashboard</h2>
-              <p className="text-purple-100">Access complete school management controls</p>
+              <h2 className='text-xl font-bold text-white mb-2'>
+                Admin Dashboard
+              </h2>
+              <p className='text-purple-100'>
+                Access complete school management controls
+              </p>
             </div>
-            <div className="bg-white/20 p-3 rounded-lg group-hover:bg-white/30 transition-colors">
+            <div className='bg-white/20 p-3 rounded-lg group-hover:bg-white/30 transition-colors'>
               <Image
-                src="/setting.png"
-                alt="Admin"
+                src='/setting.png'
+                alt='Admin'
                 width={24}
                 height={24}
-                className="brightness-0 invert"
+                className='brightness-0 invert'
               />
             </div>
           </div>
@@ -55,14 +59,14 @@ const Homepage = () => {
 
         {/* Quick Links */}
         <div className='grid grid-cols-1 md:grid-cols-4 gap-4 mb-8'>
-          <QuickLink href="/list/teachers" title="Teachers" />
-          <QuickLink href="/list/students" title="Students" />
-          <QuickLink href="/list/classes" title="Classes" />
-          <QuickLink href="/list/subjects" title="Subjects" />
-          <QuickLink href="/list/assignments" title="Assignments" />
-          <QuickLink href="/list/exams" title="Exams" />
-          <QuickLink href="/list/results" title="Results" />
-          <QuickLink href="/list/parents" title="Parents" />
+          <QuickLink href='/list/teachers' title='Teachers' />
+          <QuickLink href='/list/students' title='Students' />
+          <QuickLink href='/list/classes' title='Classes' />
+          <QuickLink href='/list/subjects' title='Subjects' />
+          <QuickLink href='/list/assignments' title='Assignments' />
+          <QuickLink href='/list/exams' title='Exams' />
+          <QuickLink href='/list/results' title='Results' />
+          <QuickLink href='/list/parents' title='Parents' />
         </div>
 
         {/* Quick Stats */}
@@ -109,9 +113,12 @@ const Homepage = () => {
             <FinanceChart />
           </div>
           <div className='bg-white p-6 rounded-lg shadow'>
-            <div className="flex justify-between items-center mb-4">
+            <div className='flex justify-between items-center mb-4'>
               <h2 className='text-xl font-semibold'>Recent Announcements</h2>
-              <Link href="/list/announcements" className="text-sm text-blue-600 hover:text-blue-800">
+              <Link
+                href='/list/announcements'
+                className='text-sm text-blue-600 hover:text-blue-800'
+              >
                 View All
               </Link>
             </div>
