@@ -164,8 +164,8 @@ export default function FormModal({ table, type, data, id }: FormModalProps) {
         <Image src={`/${type}.png`} alt='button' width={16} height={16} />
       </button>
       {open && (
-        <div className=' w-screen h-screen fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
-          <div className='bg-white p-4 rounded-md relative w-[90%] sm:w-[70%] lg:w-[60%] xl:w-[50%]'>
+        <div className='w-screen h-screen fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50'>
+          <div className='bg-white p-4 rounded-md relative w-[90%] sm:w-[70%] lg:w-[60%] xl:w-[50%] max-lg:h-[90%] overflow-y-auto'>
             <Form />
             <div>
               <Image

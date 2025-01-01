@@ -1,4 +1,12 @@
-export default function Pagination() {
+import { ITEMS_PER_PAGE } from '@/lib/constants';
+
+export default function Pagination({
+  page,
+  count,
+}: {
+  page: number;
+  count: number;
+}) {
   return (
     <div className='p-4 flex justify-between text-gray-500'>
       <button
@@ -8,11 +16,19 @@ export default function Pagination() {
         Prev
       </button>
       <div className='flex items-center gap-2 text-sm'>
-        <button className='px-2 rounded-sm bg-maestroSky'>1</button>
-        <button className='px-2 rounded-sm'>2</button>
-        <button className='px-2 rounded-sm'>3</button>
-        ...
-        <button className='px-2 rounded-sm'>10</button>
+        {Array.from({ length: Math.ceil(count / ITEMS_PER_PAGE) }, (_, i) => {
+          const pageIndex = i + 1;
+          return (
+            <button
+              key={pageIndex}
+              className={`px-2 rounded-sm ${
+                pageIndex === page ? 'bg-maestroSky text-white' : 'bg-slate-200'
+              }`}
+            >
+              {pageIndex}
+            </button>
+          );
+        })}
       </div>
       <button
         disabled
