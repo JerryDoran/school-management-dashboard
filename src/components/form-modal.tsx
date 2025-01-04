@@ -124,7 +124,7 @@ type FormModalProps = {
     | 'announcement';
   type: 'create' | 'update' | 'delete';
   data?: any;
-  id?: number;
+  id?: number | string;
 };
 
 export default function FormModal({ table, type, data, id }: FormModalProps) {

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { role } from '@/lib/data';
-import { Class, Subject, Teacher } from '@prisma/client';
+import { Class, Prisma, Subject, Teacher } from '@prisma/client';
 import prisma from '@/lib/prisma';
 import { ITEMS_PER_PAGE } from '@/lib/constants';
 
@@ -9,6 +9,7 @@ import Table from '@/components/table';
 import TableSearch from '@/components/table-search';
 import Link from 'next/link';
 import FormModal from '@/components/form-modal';
+import { parse } from 'path';
 
 type TeacherList = Teacher & {
   subjects: Subject[];
@@ -109,9 +110,40 @@ export default async function TeacherListPage({
   const { page, ...queryParams } = searchParams;
   const currentPage = page ? parseInt(page) : 1;
 
+  // URL params conditions
+  const query: Prisma.TeacherWhereInput = {};
+  if (queryParams) {
+    for (const [key, value] of Object.entries(queryParams)) {
+      if (value !== undefined) {
+        switch (key) {
+          case 'classId':
+            {
+              query.lessons = {
+                some: {
+                  classId: parseInt(value),
+                },
+              };
+            }
+            break;
+          case 'search':
+            {
+              query.lastname = {
+                contains: value,
+                mode: 'insensitive',
+              };
+            }
+            break;
+          default:
+            break;
+        }
+      }
+    }
+  }
+
   // use transaction to get teachers and count in one query
   const [teachers, count] = await prisma.$transaction([
     prisma.teacher.findMany({
+      where: query,
       include: {
         subjects: true,
         classes: true,
@@ -119,7 +151,9 @@ export default async function TeacherListPage({
       take: ITEMS_PER_PAGE,
       skip: ITEMS_PER_PAGE * (currentPage - 1),
     }),
-    prisma.teacher.count(),
+    prisma.teacher.count({
+      where: query,
+    }),
   ]);
 
   return (

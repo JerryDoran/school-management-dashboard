@@ -125,7 +125,10 @@ export default function SingleStudentPage() {
             <Link href='/' className='p-3 rounded-md bg-maestroSkyLight'>
               Student&apos;s Lessons
             </Link>
-            <Link href='/' className='p-3 rounded-md bg-maestroPurpleLight'>
+            <Link
+              href={`/list/teachers?classId=${5}`}
+              className='p-3 rounded-md bg-maestroPurpleLight'
+            >
               Student&apos;s Teachers
             </Link>
             <Link href='/' className='p-3 rounded-md bg-maestroYellowLight'>
