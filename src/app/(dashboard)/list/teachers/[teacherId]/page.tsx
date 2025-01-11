@@ -127,7 +127,10 @@ export default function SingleTeacherPage() {
         <div className='bg-white rounded-md p-4'>
           <h1 className='text-xl font-semibold'>Shortcuts</h1>
           <div className='mt-4 flex flex-wrap gap-4 text-xs text-gray-500'>
-            <Link href='/' className='p-3 rounded-md bg-maestroSkyLight'>
+            <Link
+              href={`/list/classes?supervisorId=${'teacher2'}`}
+              className='p-3 rounded-md bg-maestroSkyLight'
+            >
               Teacher&apos;s Classes
             </Link>
             <Link
