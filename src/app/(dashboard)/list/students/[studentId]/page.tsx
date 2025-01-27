@@ -122,11 +122,14 @@ export default function SingleStudentPage() {
         <div className='bg-white rounded-md p-4'>
           <h1 className='text-xl font-semibold'>Shortcuts</h1>
           <div className='mt-4 flex flex-wrap gap-4 text-xs text-gray-500'>
-            <Link href='/' className='p-3 rounded-md bg-maestroSkyLight'>
+            <Link
+              href={`/list/lessons?classId=${2}`}
+              className='p-3 rounded-md bg-maestroSkyLight'
+            >
               Student&apos;s Lessons
             </Link>
             <Link
-              href={`/list/teachers?classId=${5}`}
+              href={`/list/teachers?classId=${2}`}
               className='p-3 rounded-md bg-maestroPurpleLight'
             >
               Student&apos;s Teachers

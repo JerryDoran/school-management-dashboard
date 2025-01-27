@@ -28,6 +28,7 @@ export default function TableSearch() {
         className='object-contain'
       />
       <input
+        type='text'
         placeholder='Search...'
         className='outline-none w-[200px] bg-transparent'
       />
