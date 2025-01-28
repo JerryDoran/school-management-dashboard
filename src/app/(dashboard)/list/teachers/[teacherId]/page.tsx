@@ -145,10 +145,16 @@ export default function SingleTeacherPage() {
             >
               Teacher&apos;s Lessons
             </Link>
-            <Link href='/' className='p-3 rounded-md bg-pink-50'>
+            <Link
+              href={`/list/exams?teacherId=${'teacher2'}`}
+              className='p-3 rounded-md bg-pink-50'
+            >
               Teacher&apos;s Exams
             </Link>
-            <Link href='/' className='p-3 rounded-md bg-indigo-50'>
+            <Link
+              href={`/list/assignments?teacherId=${'teacher2'}`}
+              className='p-3 rounded-md bg-indigo-50'
+            >
               Teacher&apos;s Assignments
             </Link>
           </div>

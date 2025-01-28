@@ -134,13 +134,22 @@ export default function SingleStudentPage() {
             >
               Student&apos;s Teachers
             </Link>
-            <Link href='/' className='p-3 rounded-md bg-maestroYellowLight'>
+            <Link
+              href={`/list/results?classId=${2}`}
+              className='p-3 rounded-md bg-maestroYellowLight'
+            >
               Student&apos;s Results
             </Link>
-            <Link href='/' className='p-3 rounded-md bg-pink-50'>
+            <Link
+              href={`/list/exams?classId=${2}`}
+              className='p-3 rounded-md bg-pink-50'
+            >
               Student&apos;s Exams
             </Link>
-            <Link href='/' className='p-3 rounded-md bg-indigo-50'>
+            <Link
+              href={`/list/assignments?classId=${2}`}
+              className='p-3 rounded-md bg-indigo-50'
+            >
               Student&apos;s Assignments
             </Link>
           </div>
